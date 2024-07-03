@@ -1,0 +1,1 @@
+//function to varify if user is logged in and reroute if necessary
