@@ -37,6 +37,8 @@ router.get('/joke', async (req, res) => {
         
     } catch (err) {
         res.status(400).json(err);
+    }
+});
 
 router.get('/login', async (req, res) => {
     try {
