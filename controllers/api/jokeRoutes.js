@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { DadJoke } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/newjoke', async (req, res) => {
     try {
         const newDadJoke = await DadJoke.create({
             ...req.body,
