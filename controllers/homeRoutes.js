@@ -9,4 +9,34 @@ router.get('/', async (req, res) => {
     }
 });
 
+async function getJokesLen() {
+    const allJokeData = await DadJoke.findAll({});
+    const jokes = allJokeData.map((joke) => joke.get({ plain: true }));
+
+    return jokes.length;
+};
+
+router.get('/joke', async (req, res) => {
+    try {    
+        let jokesLen = await getJokesLen();
+        //console.log(jokesLen);
+        //console.log(Math.floor(Math.random() * jokesLen));
+        let jokeID = Math.floor(Math.random() * jokesLen);
+        const jokeData = await DadJoke.findOne({
+            where: { id: jokeID}
+            //exclude joke already seen
+        });
+
+        const joke = jokeData.get({ plain: true });
+        
+
+        res.render('joke', {
+            ...joke
+        });
+        
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 module.exports = router;
