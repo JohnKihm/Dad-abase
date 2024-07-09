@@ -1,0 +1,6 @@
+{{#each jokes as |joke|}}
+<a href="/joke/{{joke.id}}">
+    <p>{{joke.joke}}</p>
+    <p>{{joke.category.name}}</p>
+</a>
+{{/each}}
