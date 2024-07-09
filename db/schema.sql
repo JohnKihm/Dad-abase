@@ -1,1 +1,2 @@
--- will be db create and drop if needed
+DROP DATABASE IF EXISTS dadabase_db;
+CREATE DATABASE dadabase_db;

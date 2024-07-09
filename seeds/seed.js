@@ -1,13 +1,13 @@
 const sequelize = require('../config/connection');
-const { DadJokes } = require('../models');
+const { DadJoke } = require('../models');
 
-const dadJokeData = require('./userData.json');
+const dadJokeData = require('./dadJokes.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   for (const joke of dadJokeData) {
-    await DadJokes.create({
+    await DadJoke.create({
       ...joke,
     });
   }
