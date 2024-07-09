@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+
 async function getJokesLen() {
     const allJokeData = await DadJoke.findAll({});
     const jokes = allJokeData.map((joke) => joke.get({ plain: true }));
@@ -36,6 +37,30 @@ router.get('/joke', async (req, res) => {
         
     } catch (err) {
         res.status(400).json(err);
+
+router.get('/login', async (req, res) => {
+    try {
+        if (req.session.logged_in) {
+            res.redirect('/profile');
+            return;
+        }
+
+        res.render('login');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/signup', async (req, res) => {
+    try {
+        if (req.session.logged_in) {
+            res.redirect('/profile');
+            return;
+        }
+
+        res.render('signup');
+    } catch (err) {
+        res.status(500).json(err);
     }
 });
 
