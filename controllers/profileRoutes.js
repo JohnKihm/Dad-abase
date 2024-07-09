@@ -7,7 +7,13 @@ router.get('/', withAuth, async (req, res) => {
         const jokeData = await DadJoke.findAll({
             where: {
                 user_id: req.session.user_id
-            }
+            },
+            include: [
+                {
+                    model: Category,
+                    attributes: ['name']
+                }
+            ]
         });
 
         const jokes = jokeData.map((joke) => joke.get({ plain: true }));
