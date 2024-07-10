@@ -3,6 +3,7 @@ const { Rating } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
+        console.log('test')
         const newRating = await Rating.create({
             ...req.body
         });

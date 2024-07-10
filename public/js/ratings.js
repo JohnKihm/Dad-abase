@@ -1,6 +1,6 @@
 const stars = document.querySelectorAll('.star');
 const rating = document.getElementById('rating');
-const post_id = document.getElementById('joke_id');
+const joke_id = document.getElementById('joke_id').getAttribute('data-value');
 
 stars.forEach((star) => {
     star.addEventListener('click', async () => {
