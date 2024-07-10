@@ -18,7 +18,7 @@ Rating.init(
         joke_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'dadJoke',
+                model: 'dadjoke',
                 key: 'id'
             }
         }
