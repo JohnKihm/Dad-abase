@@ -1,12 +1,12 @@
 const newJokeFormHandler = async (event) => {
     event.preventDefault();
   
-    const content = document.querySelector('#joke-content').value.trim();
+    const joke = document.querySelector('#joke-content').value.trim();
   
-    if (content) {
+    if (joke) {
       const response = await fetch('/api/jokes/newjoke', {
         method: 'POST',
-        body: JSON.stringify({ content }),
+        body: JSON.stringify({ joke }),
         headers: { 'Content-Type': 'application/json' },
       });
   
