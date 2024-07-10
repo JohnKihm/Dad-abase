@@ -34,7 +34,8 @@ DadJoke.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'dadJoke'
+
+        modelName: 'dadjoke'
     }
 );
 
