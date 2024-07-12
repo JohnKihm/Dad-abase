@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { DadJoke } = require('../models');
+const { DadJoke, Rating } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -24,12 +24,27 @@ router.get('/joke', async (req, res) => {
         //console.log(Math.floor(Math.random() * jokesLen));
         let jokeID = Math.floor(Math.random() * jokesLen);
         const jokeData = await DadJoke.findOne({
-            where: { id: jokeID}
+            where: { id: jokeID},
             //exclude joke already seen
+            include: [Rating]
         });
 
         const joke = jokeData.get({ plain: true });
+
+        const ratingsLen = joke.ratings.length;
+        if (ratingsLen) {
+            let sum = 0;
+            for (rating of joke.ratings) {
+                sum += rating.value;
+            }
+            console.log(sum)
+            joke.avgRating = Math.floor((sum/ratingsLen)*10)/10;
+        } else {
+            joke.avgRating = 'Not yet rated'
+        }
+
         
+        console.log(joke)
 
         res.render('joke', {
             ...joke

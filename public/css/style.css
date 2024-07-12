@@ -9,4 +9,12 @@
     outline: none;
     color: black;
     background-color: rgb(213, 141, 213);
-  }
+}
+
+.star {
+  color: grey;
+}
+
+.colored {
+  color: goldenrod;
+}

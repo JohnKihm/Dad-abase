@@ -3,10 +3,10 @@
 </div>
 <div id="joke_id" style="display: none;" data-value="{{id}}"></div>
 <div>
-    Community Rating: {{rating.value}}
+    Community Rating: {{avgRating}}
 </div>
 <div>
-    Rate this joke:<span id="rating">0</span>/5
+    Rate this joke: <span id="rating"></span>/5
 </div>
 <div id="stars">
     <span class="star" data-value="1">★</span>
@@ -16,6 +16,6 @@
     <span class="star" data-value="5">★</span>
 </div>
 
-<a href="/joke" class="btn">Another one..</a>
+<button class="btn" id="another-one">Another one..</button>
 
 <script src="/js/ratings.js"></script>
