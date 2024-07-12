@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const { DadJoke } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/newjoke', async (req, res) => {
     try {
+        //console.log(req.body);
+        //console.log(req.session.user_id);
         const newDadJoke = await DadJoke.create({
             ...req.body,
             user_id: req.session.user_id
         });
-
         res.status(200).json(newDadJoke);
     } catch (err) {
         res.status(400).json(err);
