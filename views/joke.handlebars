@@ -1,4 +1,5 @@
-<div>
+<script src="http://unpkg.com/tone"></script>
+<div> 
     <h2>{{joke}}</h2>
 </div>
 <div id="joke_id" style="display: none;" data-value="{{id}}"></div>
@@ -9,13 +10,14 @@
     Rate this joke: <span id="rating"></span>/5
 </div>
 <div id="stars">
-    <span class="star" data-value="1">★</span>
-    <span class="star" data-value="2">★</span>
-    <span class="star" data-value="3">★</span>
-    <span class="star" data-value="4">★</span>
-    <span class="star" data-value="5">★</span>
+    <button class="star" data-value="1" id="tone-btn-one">★</button>
+    <button class="star" data-value="2" id="tone-btn-two">★</button>
+    <button class="star" data-value="3" id="tone-btn-three">★</button>
+    <button class="star" data-value="4" id="tone-btn-four">★</button>
+    <button class="star" data-value="5" id="tone-btn-five">★</button>
 </div>
 
 <button class="btn" id="another-one">Another one..</button>
 
+<script src="/js/toneSounds.js"></script>
 <script src="/js/ratings.js"></script>

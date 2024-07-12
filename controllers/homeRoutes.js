@@ -22,7 +22,7 @@ router.get('/joke', async (req, res) => {
         let jokesLen = await getJokesLen();
         //console.log(jokesLen);
         //console.log(Math.floor(Math.random() * jokesLen));
-        let jokeID = Math.floor(Math.random() * jokesLen);
+        let jokeID = Math.floor((Math.random() * jokesLen) + 1);
         const jokeData = await DadJoke.findOne({
             where: { id: jokeID},
             //exclude joke already seen
