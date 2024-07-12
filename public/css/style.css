@@ -1,1 +1,17 @@
-/* will do later*/
+body {
+    background-color: #0051ba; 
+    color: #ffffff; 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background-color: #e8000d; 
+}
+footer {
+    background-color: #002b5c; 
+}
+
+a {
+    color: #ffcd00; 
+}

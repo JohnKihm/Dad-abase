@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dad-abase</title>
+  <title>Dadabase - Where Puns and Parenting Come Together</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -23,11 +24,13 @@
         {{/if}}
       </nav>
     </header>
-    <main>
+     <main class="container mx-auto py-8 flex-grow grid grid-cols-1 md:grid-cols-2 gap-8">
       {{{ body }}}
     </main>
-    <footer>
-      
+    <footer class="text-center text-sm py-1 mt-auto">
+        <div class="container mx-auto">
+            <p>&copy; 2024 OnlyDadsLLC</p>
+        </div>
     </footer>
   </div>
   {{#if logged_in}}
