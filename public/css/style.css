@@ -13,7 +13,9 @@ footer {
 }
 
 a {
-    color: #ffcd00; 
+    color: #ffcd00;
+}
+
 .btn {
     text-align: center;
     display: inline-block;
@@ -33,4 +35,8 @@ a {
 
 .colored {
   color: goldenrod;
+}
+
+.form-input {
+    color: black;
 }
