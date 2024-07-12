@@ -4,27 +4,34 @@ const threeStar = document.getElementById("tone-btn-three");
 const fourStar = document.getElementById("tone-btn-four");
 const fiveStar = document.getElementById("tone-btn-five");
 
-const synth = new Tone.Synth().toDestination();
+const laughTrack = new Tone.Player("/assets/sounds-crowd.mp3").toDestination();
+const quackTrack = new Tone.Player("/assets/duck-quacking.mp3").toDestination();
 
 function toneSound(soundlvl) { //change values of soundlvl in evtlisteners if they are too quiet or loud
     if (Tone.context.state !== "running") {
         Tone.start();
     }
-    synth.volume.value = soundlvl;
-    synth.triggerAttackRelease("C3", "8n");
+    let egg = Math.floor((Math.random() * 1111) + 1)
+    if (egg === 111) {
+        quackTrack.volume.value = soundlvl;
+        quackTrack.start();
+    } else {
+        laughTrack.volume.value = soundlvl;
+        laughTrack.start();
+    }
 }
 oneStar.addEventListener("click", () => {
-    toneSound(-4);
+    toneSound(-15);
 });
 twoStar.addEventListener("click", () => {
-    toneSound(-2);
+    toneSound(-11);
 });
 threeStar.addEventListener("click", () => {
-    toneSound(0);
+    toneSound(-7);
 });
 fourStar.addEventListener("click", () => {
-    toneSound(2);
+    toneSound(-3);
 });
 fiveStar.addEventListener("click", () => {
-    toneSound(4);
+    toneSound(0);
 });
