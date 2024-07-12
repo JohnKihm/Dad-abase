@@ -3,7 +3,9 @@ const { DadJoke, Rating } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        res.render('homepage');
+        res.render('homepage', {
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -47,7 +49,8 @@ router.get('/joke', async (req, res) => {
         console.log(joke)
 
         res.render('joke', {
-            ...joke
+            ...joke,
+            logged_in: req.session.logged_in
         });
         
     } catch (err) {
@@ -58,7 +61,9 @@ router.get('/joke', async (req, res) => {
 router.get('/addjoke', async (req, res) => {
     try {
         if (req.session.logged_in) {
-            res.render('newjoke');
+            res.render('newjoke', {
+                logged_in: req.session.logged_in
+            });
         }
     } catch (err) {
         res.status(500).json(err);
@@ -72,7 +77,9 @@ router.get('/login', async (req, res) => {
             return;
         }
 
-        res.render('login');
+        res.render('login', {
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -85,7 +92,9 @@ router.get('/signup', async (req, res) => {
             return;
         }
 
-        res.render('signup');
+        res.render('signup', {
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err);
     }

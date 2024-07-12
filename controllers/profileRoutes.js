@@ -13,7 +13,8 @@ router.get('/', withAuth, async (req, res) => {
         const jokes = jokeData.map((joke) => joke.get({ plain: true }));
 
         res.render('profile', {
-            jokes
+            jokes,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);

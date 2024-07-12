@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dadabase - Where Puns and Parenting Come Together</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/style.css">
   <script src="http://unpkg.com/tone"></script>
 </head>
@@ -17,10 +17,13 @@
         Dad Joke Generator 
       </h1>
       <nav>
+        <a href="/">Home</a>
+        <a href="/joke">Jokes</a>
+        <a href="/profile">Profile</a>
         {{#if logged_in}}
-        <button class="no-button" id="logout">logout</button>
+        <button class="no-button" id="logout">Logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">Login</a>
         {{/if}}
       </nav>
     </header>

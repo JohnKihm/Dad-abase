@@ -6,6 +6,7 @@
 <div>
     Community Rating: {{avgRating}}
 </div>
+{{#if logged_in}}
 <div>
     Rate this joke: <span id="rating"></span>/5
 </div>
@@ -16,6 +17,7 @@
     <button class="star" data-value="4" id="tone-btn-four">★</button>
     <button class="star" data-value="5" id="tone-btn-five">★</button>
 </div>
+{{/if}}
 
 <button class="btn" id="another-one">Another one..</button>
 
