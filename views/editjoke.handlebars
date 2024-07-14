@@ -1,0 +1,14 @@
+<h2>Edit joke</h2>
+
+<form class="edit-joke-form">
+  <div class="form-group">
+    <label for="joke-edit">Edit:</label>
+    <input class="form-input" type="text" id="joke-edit" value="{{joke.joke}}"/>
+    <p id="hidden" class="joke_id">{{joke.id}}</p>
+  </div>
+  <div class="form-group">
+    <button class="btn" type="submit">Submit changes</button>
+  </div>
+</form>
+
+<script src="/js/editjoke.js"></script>

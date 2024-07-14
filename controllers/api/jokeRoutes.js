@@ -29,6 +29,23 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    const jokeData = await DadJoke.findOne({
+        where: { id: req.params.id},
+    });
+    const joke = jokeData.get({ plain: true });
+    try {
+        if (req.session.logged_in) {
+            res.render('editjoke', {
+                joke,
+                logged_in: req.session.logged_in
+            });
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.delete('/:id', async (req, res) => {
     try {
         const deletedDadJoke = await DadJoke.destroy({
