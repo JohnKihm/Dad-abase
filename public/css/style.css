@@ -40,3 +40,7 @@ a {
 .form-input {
     color: black;
 }
+
+#hidden {
+    display: none;
+}
