@@ -9,9 +9,9 @@ router.post('/signup', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
             req.session.jokesSeen = [];
+
+            res.status(200).json({ user: userData, message: 'You are now logged in!' });
         });
-        
-        res.status(200).json(userData);
     } catch (err) {
         res.status(400).json(err);
     }

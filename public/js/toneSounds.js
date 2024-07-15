@@ -20,18 +20,21 @@ function toneSound(soundlvl) { //change values of soundlvl in evtlisteners if th
         laughTrack.start();
     }
 }
-oneStar.addEventListener("click", () => {
-    toneSound(-15);
-});
-twoStar.addEventListener("click", () => {
-    toneSound(-11);
-});
-threeStar.addEventListener("click", () => {
-    toneSound(-7);
-});
-fourStar.addEventListener("click", () => {
-    toneSound(-3);
-});
-fiveStar.addEventListener("click", () => {
-    toneSound(0);
-});
+
+if (oneStar) {
+    oneStar.addEventListener("click", () => {
+        toneSound(-15);
+    });
+    twoStar.addEventListener("click", () => {
+        toneSound(-11);
+    });
+    threeStar.addEventListener("click", () => {
+        toneSound(-7);
+    });
+    fourStar.addEventListener("click", () => {
+        toneSound(-3);
+    });
+    fiveStar.addEventListener("click", () => {
+        toneSound(0);
+    });
+}

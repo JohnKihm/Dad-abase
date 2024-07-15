@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { DadJoke, Rating } = require('../models');
 
 router.get('/', async (req, res) => {
@@ -11,28 +12,42 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-async function getJokesLen() {
-    const allJokeData = await DadJoke.findAll({});
-    const jokes = allJokeData.map((joke) => joke.get({ plain: true }));
-
-    return jokes.length;
-};
-
 router.get('/joke', async (req, res) => {
     try {    
-        let jokesLen = await getJokesLen();
-        //console.log(jokesLen);
-        //console.log(Math.floor(Math.random() * jokesLen));
-        let jokeID = Math.floor((Math.random() * jokesLen) + 1);
+        const jokesLen = await DadJoke.count();
+        let joke;
+        let randomJoke = await sequelize.query('SELECT id FROM dadjoke ORDER BY RANDOM() LIMIT 1');
+        let jokeID = randomJoke[0][0].id;
+
+        // Prevent logged in users from seeing the same jokes over and over
+        if (req.session.logged_in) {
+            // If the user has seen every joke, display message and hide all rating-related elements
+            if (req.session.jokesSeen.length === jokesLen) {
+                joke = { 
+                    joke: 'No more jokes! You have seen them all! Come back later!',
+                    avgRating: null
+                };
+                res.render('joke', {
+                    ...joke,
+                    logged_in: req.session.logged_in
+                });
+            } else {
+                // Get random id of a joke that the user has not already seen this session
+                if (req.session.jokesSeen.includes(jokeID)) {
+                    randomJoke = await sequelize.query('SELECT id FROM dadjoke ORDER BY RANDOM() LIMIT 1');
+                    jokeID = randomJoke[0][0].id;
+                }
+                req.session.save(() => {
+                    req.session.jokesSeen.push(jokeID);
+                });
+            }
+        }
+
         const jokeData = await DadJoke.findOne({
             where: { id: jokeID},
-            //exclude joke already seen
             include: [Rating]
         });
-
-        const joke = jokeData.get({ plain: true });
-
+        joke = jokeData.get({ plain: true });
         const ratingsLen = joke.ratings.length;
         if (ratingsLen) {
             let sum = 0;
@@ -45,14 +60,10 @@ router.get('/joke', async (req, res) => {
             joke.avgRating = 'Not yet rated'
         }
 
-        
-        console.log(joke)
-
         res.render('joke', {
             ...joke,
             logged_in: req.session.logged_in
         });
-        
     } catch (err) {
         res.status(400).json(err);
     }
