@@ -29,11 +29,13 @@ async function getNewJoke() {
         });
         
         if (response.ok) {
-            document.location.reload();
+            document.location.replace('/joke');
         } else {
             alert(response.statusText);
         }
     }
 }
 
-newJokeButton.addEventListener('click', getNewJoke);
+if (newJokeButton) {
+    newJokeButton.addEventListener('click', getNewJoke);
+}

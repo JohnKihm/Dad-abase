@@ -1,8 +1,9 @@
 <script src="http://unpkg.com/tone"></script>
-<div> 
+<div>
     <h2>{{joke}}</h2>
 </div>
 <div id="joke_id" style="display: none;" data-value="{{id}}"></div>
+{{#if avgRating}}
 <div>
     Community Rating: {{avgRating}}
 </div>
@@ -18,8 +19,9 @@
     <button class="star" data-value="5" id="tone-btn-five">★</button>
 </div>
 {{/if}}
-
 <button class="btn" id="another-one">Another one..</button>
+{{/if}}
+
 
 <script src="/js/toneSounds.js"></script>
 <script src="/js/ratings.js"></script>
