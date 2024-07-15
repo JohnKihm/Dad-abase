@@ -12,17 +12,9 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-async function getJokesLen() {
-    const allJokeData = await DadJoke.findAll({});
-    const jokes = allJokeData.map((joke) => joke.get({ plain: true }));
-
-    return jokes.length;
-};
-
 router.get('/joke', async (req, res) => {
     try {    
-        let jokesLen = await getJokesLen();
+        const jokesLen = await DadJoke.count();
         let joke;
         let randomJoke = await sequelize.query('SELECT id FROM dadjoke ORDER BY RANDOM() LIMIT 1');
         let jokeID = randomJoke[0][0].id;
