@@ -3,8 +3,6 @@ const editJokeFormHandler = async (event) => {
   
     const joke = document.querySelector('#joke-edit').value.trim();
     const joke_id = document.querySelector('.joke_id').textContent;
-
-    console.log(joke_id);
   
     if (joke) {
       const response = await fetch(`/api/jokes/${joke_id}`, { //insert the jokes id here
