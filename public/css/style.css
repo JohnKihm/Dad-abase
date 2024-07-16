@@ -1,4 +1,7 @@
 body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
     background-color: #0051ba; 
     color: #ffffff; 
     min-height: 100vh; 
@@ -29,9 +32,23 @@ a {
     background-color: rgb(213, 141, 213);
 }
 
-.star {
-  color: grey;
+
+
+div {
+    margin-bottom: 10px; 
 }
+
+
+.star {
+    margin-top: 10px;
+    color: grey; 
+}
+
+
+.another-one {
+    margin-top: 20px; 
+}
+
 
 .colored {
   color: goldenrod;
