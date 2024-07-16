@@ -10,12 +10,12 @@ Navigate to this [website](https://dad-abase.onrender.com)
 
 ## Usage
 
-![First look](./public/images/Screenshot%202024-07-16%20at%206.17.55 PM.png)
-![Sign in](./public/images/Screenshot%202024-07-16%20at%206.18.06 PM.png)
-![Joke look](./public/images/Screenshot%202024-07-16%20at%206.18.37 PM.png)
-![Profile look](./public/images/Screenshot%202024-07-16%20at%206.18.46 PM.png)
-![Create joke](./public/images/Screenshot%202024-07-16%20at%206.19.43 PM.png)
-![Edit joke](./public/images/Screenshot%202024-07-16%20at%206.19.59 PM.png)
+![First look](./public/assets/images/Screenshot%202024-07-16%20at%206.17.55 PM.png)
+![Sign in](./public/assets/images/Screenshot%202024-07-16%20at%206.18.06 PM.png)
+![Joke look](./public/assets/images/Screenshot%202024-07-16%20at%206.18.37 PM.png)
+![Profile look](./public/assets/images/Screenshot%202024-07-16%20at%206.18.46 PM.png)
+![Create joke](./public/assets/images/Screenshot%202024-07-16%20at%206.19.43 PM.png)
+![Edit joke](./public/assets/images/Screenshot%202024-07-16%20at%206.19.59 PM.png)
 
 Navigate to this [website](https://dad-abase.onrender.com). Once you are there you will want to click login/signup to experience full features. Once you have signed in you can look at jokes without seeing repeats and rate them. To create your own joke navigate to the profile through the button in the navigation and click the create your own joke button. Once submitted you can view your jokes in your profile and edit them by clicking on them.
 
