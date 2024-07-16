@@ -12,7 +12,7 @@ DadJoke.init(
         },
         joke: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         category_id: {
             type: DataTypes.INTEGER,
