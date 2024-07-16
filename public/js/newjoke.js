@@ -4,7 +4,7 @@ const newJokeFormHandler = async (event) => {
     const joke = document.querySelector('#joke-content').value.trim();
   
     if (joke) {
-      const response = await fetch('/api/jokes/newjoke', {
+      const response = await fetch('/api/jokes/', {
         method: 'POST',
         body: JSON.stringify({ joke }),
         headers: { 'Content-Type': 'application/json' },
