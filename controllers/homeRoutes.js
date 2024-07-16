@@ -33,7 +33,7 @@ router.get('/joke', async (req, res) => {
                 });
             } else {
                 // Get random id of a joke that the user has not already seen this session
-                if (req.session.jokesSeen.includes(jokeID)) {
+                while (req.session.jokesSeen.includes(jokeID)) {
                     randomJoke = await sequelize.query('SELECT id FROM dadjoke ORDER BY RANDOM() LIMIT 1');
                     jokeID = randomJoke[0][0].id;
                 }
@@ -54,7 +54,6 @@ router.get('/joke', async (req, res) => {
             for (rating of joke.ratings) {
                 sum += rating.value;
             }
-            console.log(sum)
             joke.avgRating = Math.floor((sum/ratingsLen)*10)/10;
         } else {
             joke.avgRating = 'Not yet rated'
@@ -73,6 +72,23 @@ router.get('/addjoke', async (req, res) => {
     try {
         if (req.session.logged_in) {
             res.render('newjoke', {
+                logged_in: req.session.logged_in
+            });
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/editjoke/:id', async (req, res) => {
+    const jokeData = await DadJoke.findOne({
+        where: { id: req.params.id},
+    });
+    const joke = jokeData.get({ plain: true });
+    try {
+        if (req.session.logged_in) {
+            res.render('editjoke', {
+                joke,
                 logged_in: req.session.logged_in
             });
         }

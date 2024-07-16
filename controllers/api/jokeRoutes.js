@@ -1,10 +1,8 @@
 const router = require('express').Router();
 const { DadJoke } = require('../../models');
 
-router.post('/newjoke', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        //console.log(req.body);
-        //console.log(req.session.user_id);
         const newDadJoke = await DadJoke.create({
             ...req.body,
             user_id: req.session.user_id
@@ -24,23 +22,6 @@ router.put('/:id', async (req, res) => {
         });
 
         res.status(200).json(updatedDadJoke);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.get('/:id', async (req, res) => {
-    const jokeData = await DadJoke.findOne({
-        where: { id: req.params.id},
-    });
-    const joke = jokeData.get({ plain: true });
-    try {
-        if (req.session.logged_in) {
-            res.render('editjoke', {
-                joke,
-                logged_in: req.session.logged_in
-            });
-        }
     } catch (err) {
         res.status(500).json(err);
     }
