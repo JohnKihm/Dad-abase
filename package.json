@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "node server.js",
-    "seed": "node seeds/seed.js"
+    "seed": "node seeds/seed.js",
+    "dev": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -13,5 +14,8 @@
     "pg": "^8.12.0",
     "sequelize": "^6.37.3",
     "tone": "^15.0.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.5"
   }
 }
