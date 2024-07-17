@@ -588,6 +588,14 @@ video {
   }
 }
 
+.fixed {
+  position: fixed;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -619,6 +627,10 @@ video {
 
 .hidden {
   display: none;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .max-w-lg {
